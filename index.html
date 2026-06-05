@@ -2,136 +2,231 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Калькулятор проекта</title>
 
 <style>
-body { font-family: Arial, sans-serif; background: #f2f2f2; padding: 20px; }
-.card { background: #e9e9e9; border-radius: 20px; padding: 20px; margin-bottom: 20px; }
-h2,h3,h4 { margin-bottom: 10px; }
-.input, select { padding: 8px 12px; border-radius: 12px; border: none; background: #d6d6d6; }
-.row { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; align-items: center; }
-.service { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.unit { font-size: 12px; color: #666; }
 
-.btn {
-  background: #ff4d4d;
-  border: none;
-  padding: 8px 20px;
-  border-radius: 12px;
-  color: white;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-right: 10px;
+body{
+  font-family:Arial,sans-serif;
+  background:#f2f2f2;
+  padding:20px;
+  margin:0;
 }
 
-.designer {
-  background: white;
-  border-radius: 20px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
+.card{
+  background:#e9e9e9;
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:20px;
 }
 
-.header {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
+h2,h3,h4{
+  margin-bottom:10px;
 }
 
-.designer-photo {
-  width: 120px;
-  aspect-ratio: 3/4;
-  border-radius: 12px;
-  overflow: hidden;
-  flex-shrink: 0;
+.input,
+select{
+  padding:8px 12px;
+  border-radius:12px;
+  border:none;
+  background:#d6d6d6;
 }
 
-.designer-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.row{
+  display:flex;
+  gap:10px;
+  margin-bottom:10px;
+  flex-wrap:wrap;
+  align-items:center;
 }
 
-.header-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 2px;
+.service{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
 }
 
-.city {
-  display: inline-block;
-  background: purple;
-  color: white;
-  padding: 4px 10px;
-  border-radius: 10px;
-  font-size: 12px;
-  max-width: 100%;
-  white-space: nowrap;
+.unit{
+  font-size:12px;
+  color:#666;
 }
 
-.tags {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-top: 0;
+.btn{
+  background:#ff4d4d;
+  border:none;
+  padding:8px 20px;
+  border-radius:12px;
+  color:white;
+  cursor:pointer;
+  margin-top:10px;
+  margin-right:10px;
 }
 
-.tags span {
-  display: inline-block;
-  background: #00c27a;
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-size: 12px;
-  max-width: 100%;
-  white-space: nowrap;
+.designer{
+  background:white;
+  border-radius:20px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:20px;
 }
 
-.calc-row {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.header{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
 }
 
-.service-line {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.designer-photo{
+  width:120px;
+  aspect-ratio:3/4;
+  border-radius:14px;
+  overflow:hidden;
+  flex-shrink:0;
 }
 
-.rate {
-  font-size: 12px;
-  min-width: 80px;
-  text-align: left;
+.designer-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.amount-box {
-  background: #d6d6d6;
-  padding: 6px 10px;
-  border-radius: 8px;
-  flex-grow: 1;
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
+.header-info{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  flex:1;
 }
 
-.total {
-  margin-top: 10px;
-  font-weight: bold;
+.title-line{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
-.designer .contact-btn {
-  margin-top: 10px;
-  background: #00aaff;
-  padding: 10px 16px;
-  border-radius: 12px;
-  color: white;
-  border: none;
-  cursor: pointer;
-  align-self: flex-start;
+.title-line h3{
+  margin:0;
 }
+
+.city{
+  background:#6d35ff;
+  color:white;
+  padding:5px 12px;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.tags-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.tag{
+  padding:6px 12px;
+  border-radius:12px;
+  font-size:12px;
+  color:white;
+  white-space:nowrap;
+}
+
+.tag-green{
+  background:#00b578;
+}
+
+.tag-blue{
+  background:#132e7c;
+}
+
+.tag-orange{
+  background:#ff7b22;
+}
+
+.calc-row{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.service-line{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.rate{
+  font-size:13px;
+  font-weight:bold;
+}
+
+.amount-box{
+  background:#d6d6d6;
+  padding:8px 12px;
+  border-radius:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+}
+
+.amount-box-disabled{
+  background:#ff3b3b;
+  color:white;
+}
+
+.total{
+  margin-top:10px;
+  font-weight:bold;
+  font-size:22px;
+}
+
+.supervision-badge{
+  margin-top:10px;
+  display:inline-block;
+  background:#00aaff;
+  color:white;
+  padding:8px 14px;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:normal;
+}
+
+.contact-btn{
+  margin-top:10px;
+  background:#00aaff;
+  padding:12px 18px;
+  border-radius:12px;
+  color:white;
+  border:none;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.small-input{
+  width:60px;
+}
+
+@media (max-width:768px){
+
+  .header{
+    flex-direction:column;
+  }
+
+  .designer-photo{
+    width:100%;
+    max-width:220px;
+  }
+
+}
+
 </style>
 </head>
 
@@ -139,381 +234,797 @@ h2,h3,h4 { margin-bottom: 10px; }
 
 <div class="card">
 
-  <h2>
-    Калькулятор проекта
+<h2>
 
-    <button class="btn" onclick="generateShareLink()">
-      Поделиться
-    </button>
-  </h2>
+Калькулятор проекта
 
-  <div class="row">
+<button class="btn" onclick="generateShareLink()">
+Поделиться
+</button>
 
-    <label>Город:</label>
+</h2>
 
-    <select id="city">
-      <option>Уфа</option>
-      <option>Москва</option>
-    </select>
+<div class="row">
 
-    <label>Телефон:</label>
+<label>Город:</label>
 
-    <input
-      class="input"
-      id="phone"
-      placeholder="+79001234567"
-    />
+<select id="city">
+<option>Все города</option>
+<option>Москва</option>
+<option>МО</option>
+<option>Ставрополь</option>
+<option>Ростов-на-Дону</option>
+<option>Батайск</option>
+<option>Санкт-Петербург</option>
+<option>Волгоград</option>
+<option>Краснодар</option>
+<option>Уфа</option>
+<option>Воронеж</option>
+<option>Грозный</option>
+<option>Беларусь</option>
+</select>
 
-  </div>
+<label>Телефон:</label>
 
-  <div class="row">
+<input
+class="input"
+id="phone"
+placeholder="+79001234567"
+/>
 
-    <label>Расположение:</label>
+</div>
 
-    <select id="placement">
-      <option value="1">В черте города</option>
-      <option value="1.2">За городом</option>
-    </select>
+<div class="row">
 
-    <label>Тип:</label>
+<label>Расположение:</label>
 
-    <select id="type">
-      <option>Дом</option>
-      <option>Квартира</option>
-    </select>
+<select id="placement">
+<option value="1">В черте города</option>
+<option value="1.2">За городом</option>
+</select>
 
-  </div>
+<label>Тип:</label>
 
-  <h3>Наполнение:</h3>
+<select id="type">
+<option>Не важно</option>
+<option>Дом</option>
+<option>Квартира</option>
+<option>Коммерция</option>
+</select>
 
-  <div class="service">
-    <input type="checkbox" id="measure" checked>
-    <label>Выезд для обмерного плана</label>
-    <input class="input" type="number" value="62" id="area1">
-    <span class="unit">кв.м</span>
-  </div>
+</div>
 
-  <div class="service">
-    <input type="checkbox" id="docs" checked>
-    <label>Техническая документация</label>
-    <input class="input" type="number" value="62" id="area2">
-    <span class="unit">кв.м</span>
-  </div>
+<h3>Наполнение:</h3>
 
-  <div class="service">
-    <input type="checkbox" id="visual" checked>
-    <label>3D-визуализация</label>
-    <input class="input" type="number" value="62" id="area3">
-    <span class="unit">кв.м</span>
-  </div>
+<div class="service">
+<input type="checkbox" id="measure" checked>
+<label>Выезд для обмерного плана</label>
+<input class="input" type="number" value="62" id="area1">
+<span class="unit">кв.м</span>
+</div>
 
-  <div class="service">
-    <input type="checkbox" id="table">
-    <label>Таблица комплектации</label>
-    <input class="input" type="number" value="50" id="areaTable">
-    <span class="unit">кв.м</span>
-  </div>
+<div class="service">
+<input type="checkbox" id="docs" checked>
+<label>Техническая документация</label>
+<input class="input" type="number" value="62" id="area2">
+<span class="unit">кв.м</span>
+</div>
 
-  <div class="service">
-    <input type="checkbox" id="collage">
-    <label>2D-коллажи</label>
-    <input class="input" type="number" value="3" id="collageCount">
-    <span class="unit">ракурсов</span>
-  </div>
+<div class="service">
+<input type="checkbox" id="visual" checked>
+<label>3D-визуализация</label>
+<input class="input" type="number" value="62" id="area3">
+<span class="unit">кв.м</span>
+</div>
+
+<div class="service">
+<input type="checkbox" id="table">
+<label>Таблица комплектации</label>
+<input class="input" type="number" value="50" id="areaTable">
+<span class="unit">кв.м</span>
+</div>
+
+<div class="service">
+
+<input type="checkbox" id="collage">
+
+<label>2D-коллажи</label>
+
+<input
+class="input small-input"
+type="number"
+value="3"
+id="collageCount"
+>
+
+<span class="unit">ракурсов</span>
+
+<input
+class="input small-input"
+type="number"
+value="62"
+id="collageArea"
+>
+
+<span class="unit">кв.м</span>
+
+</div>
+
+<div class="service">
+<input type="checkbox" id="supervision">
+<label>Авторский надзор</label>
+</div>
 
 </div>
 
 <div class="card">
 
-  <div class="row">
+<div class="row">
 
-    <label>Бюджет от:</label>
-    <input class="input" id="budgetMin" value="10000">
+<label>Бюджет от:</label>
+<input class="input" id="budgetMin" value="10000">
 
-    <label>до:</label>
-    <input class="input" id="budgetMax" value="90000">
+<label>до:</label>
+<input class="input" id="budgetMax" value="900000">
 
-  </div>
+</div>
 
-  <div class="row">
+<div class="row">
 
-    <label>Сортировать:</label>
+<label>Сортировать:</label>
 
-    <select id="sort">
-      <option value="desc">Сначала дороже</option>
-      <option value="asc" selected>Сначала дешевле</option>
-    </select>
+<select id="sort">
+<option value="desc">Сначала дороже</option>
+<option value="asc" selected>Сначала дешевле</option>
+</select>
 
-  </div>
+</div>
 
-  <button class="btn" onclick="calculate()">
-    Подобрать дизайнера
-  </button>
+<button class="btn" onclick="calculate()">
+Подобрать дизайнера
+</button>
 
-  <div style="height:20px;"></div>
+<div style="height:20px;"></div>
 
-  <div id="results"></div>
+<div id="results"></div>
 
 </div>
 
 <script>
 
-// поля для URL
 const fields = [
-  "city",
-  "phone",
-  "placement",
-  "type",
-  "area1",
-  "area2",
-  "area3",
-  "areaTable",
-  "collageCount",
-  "budgetMin",
-  "budgetMax",
-  "sort",
-  "measure",
-  "docs",
-  "visual",
-  "table",
-  "collage"
+"city",
+"phone",
+"placement",
+"type",
+"area1",
+"area2",
+"area3",
+"areaTable",
+"collageCount",
+"collageArea",
+"budgetMin",
+"budgetMax",
+"sort",
+"measure",
+"docs",
+"visual",
+"table",
+"collage",
+"supervision"
 ];
 
-// загрузка параметров
-window.onload = function () {
+const designersData = [
 
-  const params = new URLSearchParams(window.location.search);
+{
+name:"Гринева Лада",
+id:"52-00001",
+city:"Ставрополь, Ростов-на-Дону, Батайск",
+photo:"https://drive.google.com/thumbnail?id=1xx_1bRG1dVITSCz9StS9A-nek5p2RYL4",
+feature1:"Работаю только онлайн",
+feature2:["Могу выехать на замер","Работаю по договору"],
+objects:["Дом","Квартира","Коммерция"],
+minArea:"От 35 кв.м",
+minBudget:"От 18 000 руб",
+rates:{
+measure:500,
+docs:800,
+visual:550,
+table:450,
+collageType:"m2",
+collage:0,
+supervision:0
+}
+},
 
-  fields.forEach(id => {
+{
+name:"Смолева Карина",
+id:"52-00002",
+city:"Санкт-Петербург",
+photo:"https://drive.google.com/thumbnail?id=1GIotzUuhKMY-70DAFCYQ5yWVgeB8gz7-",
+feature1:"Могу выехать на объект для составления ТЗ",
+feature2:["Могу выехать на замер","Работаю по договору"],
+objects:["Дом","Квартира","Коммерция"],
+minArea:"От 25 кв.м",
+minBudget:"От 25 000 руб",
+rates:{
+measure:100,
+docs:400,
+visual:600,
+table:300,
+collageType:"m2",
+collage:500,
+supervision:10000
+}
+},
 
-    const el = document.getElementById(id);
+{
+name:"Ковалева Елизавета",
+id:"52-00003",
+city:"Волгоград",
+photo:"https://drive.google.com/thumbnail?id=1Tw-7DOsd-ZQnbPif-qFebQzwRU3sJTG4",
+feature1:"Работаю только онлайн",
+feature2:["Есть свой замерщик","НЕ работаю по договору"],
+objects:["Дом","Квартира"],
+minArea:"От 5 кв.м",
+minBudget:"От 10 000 руб",
+rates:{
+measure:300,
+docs:300,
+visual:300,
+table:200,
+collageType:"m2",
+collage:0,
+supervision:0
+}
+},
 
-    if (!el) return;
+{
+name:"Хорушевская Елизавета",
+id:"52-00004",
+city:"Санкт-Петербург",
+photo:"https://drive.google.com/thumbnail?id=1X4-trby5VThXNAAKGZicuwoR5iDW17Ow",
+feature1:"Могу выехать на объект для составления ТЗ",
+feature2:["Могу выехать на замер","Работаю по договору"],
+objects:["Дом","Квартира","Коммерция"],
+minArea:"От 5 кв.м",
+minBudget:"От 1000 руб",
+rates:{
+measure:360,
+docs:560,
+visual:720,
+table:560,
+collageType:"m2",
+collage:0,
+supervision:0
+}
+},
 
-    const value = params.get(id);
+{
+name:"Кучина Ксения",
+id:"52-00005",
+city:"Краснодар",
+photo:"https://drive.google.com/thumbnail?id=1RtoIBNcCu9fPnmGLwZJmFaQvdhoeeqzd",
+feature1:"Могу выехать на объект для составления ТЗ",
+feature2:["Могу выехать на замер","Работаю по договору"],
+objects:["Дом","Квартира"],
+minArea:"От 0 кв.м",
+minBudget:"От 100 руб",
+rates:{
+measure:100,
+docs:100,
+visual:100,
+table:100,
+collageType:"m2",
+collage:0,
+supervision:0
+}
+},
 
-    if (value !== null) {
+{
+name:"Пак Екатерина",
+id:"52-00006",
+city:"Краснодар",
+photo:"https://drive.google.com/thumbnail?id=1ca5kI9TXlnqW_ZfirnrqHC64A7rEngjN",
+feature1:"Работаю только онлайн",
+feature2:["Есть свой замерщик","НЕ работаю по договору"],
+objects:["Дом","Квартира","Коммерция"],
+minArea:"От 30 кв.м",
+minBudget:"От 25 000 руб",
+rates:{
+measure:300,
+docs:600,
+visual:700,
+table:600,
+collageType:"m2",
+collage:0,
+supervision:50000
+}
+},
 
-      if (el.type === "checkbox") {
-        el.checked = value === "true";
-      }
+{
+name:"Карамова Дина",
+id:"52-00007",
+city:"Уфа, Беларусь",
+photo:"https://drive.google.com/thumbnail?id=1EwL0vDWEE34RkH91wP2O-ycCITn1E41v",
+feature1:"Могу выехать на объект для составления ТЗ",
+feature2:["Могу выехать на замер","Есть свой замерщик","Работаю по договору"],
+objects:["Дом","Квартира"],
+minArea:"От 5 кв.м",
+minBudget:"От 5000 руб",
+rates:{
+measure:150,
+docs:1200,
+visual:800,
+table:300,
+collageType:"m2",
+collage:500,
+supervision:9000
+}
+},
 
-      else {
-        el.value = value;
-      }
+{
+name:"Робина Татьяна",
+id:"52-00008",
+city:"Москва",
+photo:"https://drive.google.com/thumbnail?id=1V2mON0V5Qpt13H5ZoKW8niKCxFO_VbxS",
+feature1:"Могу выехать на объект для составления ТЗ",
+feature2:["Могу выехать на замер","Есть свой замерщик","Работаю по договору"],
+objects:["Дом","Квартира","Коммерция"],
+minArea:"От 20 кв.м",
+minBudget:"От 40 000 руб",
+rates:{
+measure:100,
+docs:500,
+visual:300,
+table:500,
+collageType:"view",
+collage:500,
+supervision:30000
+}
+},
 
-    }
+{
+name:"Карева Анна",
+id:"52-00009",
+city:"Москва",
+photo:"https://drive.google.com/thumbnail?id=1qWuzlz3tKIJIToCiw1bdv78F4o1rUfol",
+feature1:"Работаю только онлайн",
+feature2:["Могу выехать на замер","Есть свой замерщик","Работаю по договору"],
+objects:["Дом","Квартира"],
+minArea:"От 50 кв.м",
+minBudget:"От 96 000 руб",
+rates:{
+measure:150,
+docs:1500,
+visual:700,
+table:1000,
+collageType:"m2",
+collage:450,
+supervision:35000
+}
+},
 
-  });
+{
+name:"Сотскова Юлия",
+id:"52-00010",
+city:"Воронеж",
+photo:"https://drive.google.com/thumbnail?id=1SvrpjMAauzmLuKYxuBb3nTf8idgS-jny",
+feature1:"Могу выехать на объект для составления ТЗ",
+feature2:["Могу выехать на замер","Работаю по договору"],
+objects:["Дом","Квартира"],
+minArea:"От 10 кв.м",
+minBudget:"От 10 000 руб",
+rates:{
+measure:100,
+docs:400,
+visual:500,
+table:300,
+collageType:"m2",
+collage:200,
+supervision:20000
+}
+},
 
-  calculate();
+{
+name:"Астапченко Егор",
+id:"52-00011",
+city:"Воронеж",
+photo:"https://drive.google.com/thumbnail?id=1_W0QGH90bOYIwI144LYBK4BbDUFGHcFb",
+feature1:"Могу выехать на объект для составления ТЗ",
+feature2:["Могу выехать на замер","Работаю по договору"],
+objects:["Дом","Квартира","Коммерция"],
+minArea:"От 20 кв.м",
+minBudget:"От 30 000 руб",
+rates:{
+measure:250,
+docs:1500,
+visual:1900,
+table:600,
+collageType:"m2",
+collage:700,
+supervision:25000
+}
+},
 
-};
+{
+name:"Магомаева Зуля",
+id:"52-00012",
+city:"Грозный",
+photo:"https://drive.google.com/thumbnail?id=1-tk6S3imq4V71Pjk8xZD9frNxoIr_gTe",
+feature1:"Работаю только онлайн",
+feature2:["Есть свой замерщик","Работаю по договору"],
+objects:["Дом","Квартира","Коммерция"],
+minArea:"От 70 кв.м",
+minBudget:"От 1млн руб",
+rates:{
+measure:0,
+docs:600,
+visual:600,
+table:0,
+collageType:"m2",
+collage:0,
+supervision:50000
+}
+},
 
-// генерация ссылки
-function generateShareLink() {
+{
+name:"Паршкова Наталья",
+id:"52-00013",
+city:"Москва, МО",
+photo:"https://drive.google.com/thumbnail?id=1obgQ_H-rslf7dsFd3HVQvvAe-TxU-AT8",
+feature1:"Могу выехать на объект для составления ТЗ",
+feature2:["Могу выехать на замер","НЕ работаю по договору"],
+objects:["Квартира"],
+minArea:"От 0 кв.м",
+minBudget:"От 0 руб",
+rates:{
+measure:200,
+docs:600,
+visual:0,
+table:400,
+collageType:"m2",
+collage:600,
+supervision:50000
+}
+},
 
-  const params = new URLSearchParams();
+{
+name:"Руденко Ксения",
+id:"52-00014",
+city:"Москва",
+photo:"https://drive.google.com/thumbnail?id=1BN4yhS4jIgV6SDNPLhlnPntD7ufkgWFa",
+feature1:"Работаю только онлайн",
+feature2:["Есть свой замерщик","Работаю по договору"],
+objects:["Дом","Квартира","Коммерция"],
+minArea:"От 30 кв.м",
+minBudget:"От 5000 руб",
+rates:{
+measure:300,
+docs:0,
+visual:600,
+table:0,
+collageType:"m2",
+collage:0,
+supervision:0
+}
+},
 
-  fields.forEach(id => {
+{
+name:"Крыжевская Мария",
+id:"52-00015",
+city:"Санкт-Петербург",
+photo:"https://drive.google.com/thumbnail?id=1DyXCTjqJ_47I8edb34BNnVMMUY4vwQed",
+feature1:"Работаю только онлайн",
+feature2:["Могу выехать на замер","Работаю по договору"],
+objects:["Дом","Квартира","Коммерция"],
+minArea:"От 30 кв.м",
+minBudget:"От 25 000 руб",
+rates:{
+measure:1500,
+docs:1900,
+visual:300,
+table:0,
+collageType:"m2",
+collage:0,
+supervision:0
+}
+},
 
-    const el = document.getElementById(id);
+{
+name:"Игорь Кушко",
+id:"52-00016",
+city:"Москва",
+photo:"https://drive.google.com/thumbnail?id=1LtKqhtBH2REoQuQ6CYIDdwV8Ic4rRnsp",
+feature1:"Работаю только онлайн",
+feature2:["Есть свой замерщик","Работаю по договору"],
+objects:["Дом","Квартира"],
+minArea:"От 10 кв.м",
+minBudget:"От 5000 руб",
+rates:{
+measure:110,
+docs:580,
+visual:800,
+table:250,
+collageType:"view",
+collage:3000,
+supervision:0
+}
+}
 
-    if (!el) return;
+];
 
-    if (el.type === "checkbox") {
-      params.set(id, el.checked);
-    }
+window.onload = function(){
 
-    else {
-      params.set(id, el.value);
-    }
+const params = new URLSearchParams(window.location.search);
 
-  });
+fields.forEach(id=>{
 
-  const url =
-    window.location.origin +
-    window.location.pathname +
-    "?" +
-    params.toString();
+const el = document.getElementById(id);
 
-  navigator.clipboard.writeText(url);
+if(!el) return;
 
-  alert("Ссылка скопирована!");
+const value = params.get(id);
+
+if(value !== null){
+
+if(el.type === "checkbox"){
+el.checked = value === "true";
+}else{
+el.value = value;
+}
 
 }
 
-// расчет
-function calculate() {
+});
 
-  const placement = parseFloat(document.getElementById("placement").value);
+calculate();
 
-  const placementText =
-    document.getElementById("placement").options[
-      document.getElementById("placement").selectedIndex
-    ].text;
+};
 
-  const selectedCity = document.getElementById("city").value;
+function generateShareLink(){
 
-  const phone = document.getElementById("phone").value;
+const params = new URLSearchParams();
 
-  const type = document.getElementById("type").value;
+fields.forEach(id=>{
 
-  const budgetMin =
-    parseFloat(document.getElementById("budgetMin").value) || 0;
+const el = document.getElementById(id);
 
-  const budgetMax =
-    parseFloat(document.getElementById("budgetMax").value) || Infinity;
+if(!el) return;
 
-  const sortOrder =
-    document.getElementById("sort").value;
+if(el.type === "checkbox"){
+params.set(id, el.checked);
+}else{
+params.set(id, el.value);
+}
 
-  function generateDesignerCard(name, id, customRates=false) {
+});
 
-    let total = 0;
+const url =
+window.location.origin +
+window.location.pathname +
+"?" +
+params.toString();
 
-    let servicesText = "";
+navigator.clipboard.writeText(url);
 
-    let html = `
-    <div class="designer">
+alert("Ссылка скопирована!");
 
-      <div class="header">
+}
 
-        <div class="designer-photo">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400">
-        </div>
+function calculate(){
 
-        <div class="header-info">
+const placement =
+parseFloat(document.getElementById("placement").value);
 
-          <h3>${name} ${id} <span class="city">УФА</span></h3>
+const placementText =
+document.getElementById("placement").options[
+document.getElementById("placement").selectedIndex
+].text;
 
-          <div class="tags">
-            <span>Может выехать на объект</span>
-            <span>Составляет ТЗ онлайн</span>
-            <span>Дом</span>
-            <span>Квартира</span>
-          </div>
+const selectedCity =
+document.getElementById("city").value;
 
-        </div>
+const phone =
+document.getElementById("phone").value;
 
-      </div>
+const type =
+document.getElementById("type").value;
 
-      <h4>Расчет стоимости:</h4>
-    `;
+const budgetMin =
+parseFloat(document.getElementById("budgetMin").value) || 0;
 
-    function row(
-      serviceName,
-      val,
-      rate,
-      amount,
-      formulaText
-    ) {
+const budgetMax =
+parseFloat(document.getElementById("budgetMax").value) || Infinity;
 
-      servicesText += formulaText + "\n";
+const sortOrder =
+document.getElementById("sort").value;
 
-      html += `
-      <div class="calc-row">
+const results = [];
 
-        <div class="service-line">
-          <span>${serviceName}</span>
-          <span class="rate">${rate}</span>
-        </div>
+designersData.forEach(designer=>{
 
-        <div class="amount-box">
-          <span>${amount}</span>
-          <span>${Math.round(val)} ₽</span>
-        </div>
+if(
+selectedCity !== "Все города" &&
+!designer.city.includes(selectedCity)
+){
+return;
+}
 
-      </div>`;
-    }
+if(
+type !== "Не важно" &&
+!designer.objects.includes(type)
+){
+return;
+}
 
-    const rateMeasure = customRates ? 90 : 110;
-    const rateDocs = customRates ? 90 : 490;
-    const rateVisual = customRates ? 90 : 700;
-    const rateTable = customRates ? 90 : 160;
-    const rateCollage = customRates ? 90 : 1500;
+let total = 0;
+let hasUnavailableService = false;
 
-    if (measure.checked) {
+function getServiceBox(serviceName, rate, quantityText, value){
 
-      let val = area1.value * rateMeasure * placement;
+const isUnavailable = rate === 0;
 
-      total += val;
+if(!isUnavailable){
+total += value;
+}else{
+hasUnavailableService = true;
+}
 
-      row(
-        "Обмер",
-        val,
-        rateMeasure + " ₽/м²",
-        area1.value + " кв.м",
-        `Обмер=(${rateMeasure}₽/м²)*${area1.value}кв.м=${Math.round(val)}₽`
-      );
+return `
+<div class="calc-row">
 
-    }
+<div class="service-line">
+<span>${serviceName}</span>
+<span class="rate">
+${isUnavailable ? "Не оказывается" : rate}
+${!isUnavailable ? " ₽/м²" : ""}
+</span>
+</div>
 
-    if (docs.checked) {
+<div class="amount-box ${isUnavailable ? "amount-box-disabled" : ""}">
+<span>${quantityText}</span>
+<span>
+${isUnavailable ? "не оказывается" : Math.round(value) + " ₽"}
+</span>
+</div>
 
-      let val = area2.value * rateDocs * placement;
+</div>
+`;
+}
 
-      total += val;
+let servicesHtml = "";
 
-      row(
-        "Документация",
-        val,
-        rateDocs + " ₽/м²",
-        area2.value + " кв.м",
-        `Документация=(${rateDocs}₽/м²)*${area2.value}кв.м=${Math.round(val)}₽`
-      );
+if(measure.checked){
 
-    }
+servicesHtml += getServiceBox(
+"Обмер",
+designer.rates.measure,
+`${area1.value} кв.м`,
+area1.value * designer.rates.measure * placement
+);
 
-    if (visual.checked) {
+}
 
-      let val = area3.value * rateVisual * placement;
+if(docs.checked){
 
-      total += val;
+servicesHtml += getServiceBox(
+"Документация",
+designer.rates.docs,
+`${area2.value} кв.м`,
+area2.value * designer.rates.docs * placement
+);
 
-      row(
-        "3D-визуализация",
-        val,
-        rateVisual + " ₽/м²",
-        area3.value + " кв.м",
-        `3D-визуализация=(${rateVisual}₽/м²)*${area3.value}кв.м=${Math.round(val)}₽`
-      );
+}
 
-    }
+if(visual.checked){
 
-    if (table.checked) {
+servicesHtml += getServiceBox(
+"3D-визуализация",
+designer.rates.visual,
+`${area3.value} кв.м`,
+area3.value * designer.rates.visual * placement
+);
 
-      let val = areaTable.value * rateTable;
+}
 
-      total += val;
+if(table.checked){
 
-      row(
-        "Таблица комплектации",
-        val,
-        rateTable + " ₽/м²",
-        areaTable.value + " кв.м",
-        `Таблица комплектации=(${rateTable}₽/м²)*${areaTable.value}кв.м=${Math.round(val)}₽`
-      );
+servicesHtml += getServiceBox(
+"Таблица комплектации",
+designer.rates.table,
+`${areaTable.value} кв.м`,
+areaTable.value * designer.rates.table
+);
 
-    }
+}
 
-    if (collage.checked) {
+if(collage.checked){
 
-      let val = collageCount.value * rateCollage;
+const collageValue =
+designer.rates.collageType === "m2"
+? collageArea.value * designer.rates.collage
+: collageCount.value * designer.rates.collage;
 
-      total += val;
+const collageQuantity =
+designer.rates.collageType === "m2"
+? `${collageArea.value} кв.м`
+: `${collageCount.value} ракурсов`;
 
-      row(
-        "2D-коллажи",
-        val,
-        rateCollage + " ₽/ракурс",
-        collageCount.value + " ракурс(ов)",
-        `2D-коллажи=(${rateCollage}₽/ракурс)*${collageCount.value}=${Math.round(val)}₽`
-      );
+const collageRate =
+designer.rates.collageType === "m2"
+? designer.rates.collage + " ₽/м²"
+: designer.rates.collage + " ₽/ракурс";
 
-    }
+const isUnavailable = designer.rates.collage === 0;
 
-    const telegramMessage =
+if(!isUnavailable){
+total += collageValue;
+}else{
+hasUnavailableService = true;
+}
+
+servicesHtml += `
+<div class="calc-row">
+
+<div class="service-line">
+<span>2D-коллажи</span>
+<span class="rate">
+${isUnavailable ? "Не оказывается" : collageRate}
+</span>
+</div>
+
+<div class="amount-box ${isUnavailable ? "amount-box-disabled" : ""}">
+<span>${collageQuantity}</span>
+<span>
+${isUnavailable ? "не оказывается" : Math.round(collageValue) + " ₽"}
+</span>
+</div>
+
+</div>
+`;
+
+}
+
+let supervisionValue = 0;
+
+if(supervision.checked){
+
+const isUnavailable = designer.rates.supervision === 0;
+
+if(!isUnavailable){
+supervisionValue = designer.rates.supervision;
+}else{
+hasUnavailableService = true;
+}
+
+servicesHtml += `
+<div class="calc-row">
+
+<div class="service-line">
+<span>Авторский надзор</span>
+<span class="rate">
+${isUnavailable ? "Не оказывается" : designer.rates.supervision + " ₽/мес."}
+</span>
+</div>
+
+<div class="amount-box ${isUnavailable ? "amount-box-disabled" : ""}">
+<span>1 месяц</span>
+<span>
+${isUnavailable ? "не оказывается" : designer.rates.supervision + " ₽"}
+</span>
+</div>
+
+</div>
+`;
+
+}
+
+if(total < budgetMin || total > budgetMax){
+return;
+}
+
+const telegramMessage =
 `Город: ${selectedCity}
 
 Телефон: ${phone}
@@ -522,93 +1033,117 @@ function calculate() {
 
 Тип: ${type}
 
-Дизайнер: ${name} ${id}
+Дизайнер: ${designer.name} ${designer.id}
 
-Расчет стоимости:
-${servicesText}
+Итого: ${Math.round(total)} ₽`;
 
-Итого: ${Math.round(total)}₽`;
+const telegramUrl =
+"https://t.me/ikushko?text=" +
+encodeURIComponent(telegramMessage);
 
-    const telegramUrl =
-      "https://t.me/ikushko?text=" +
-      encodeURIComponent(telegramMessage);
+const feature2Html =
+designer.feature2.map(item =>
+`<span class="tag tag-green">${item}</span>`
+).join("");
 
-    html += `
-      <div class="total">
-        Итого: ${Math.round(total)} ₽
-      </div>
-    `;
+const objectsHtml =
+designer.objects.map(item =>
+`<span class="tag tag-blue">${item}</span>`
+).join("");
 
-    html += `
-      <a href="${telegramUrl}" target="_blank">
-        <button class="contact-btn">
-          Связаться
-        </button>
-      </a>
-    `;
+const html = `
+<div class="designer">
 
-    html += `</div>`;
+<div class="header">
 
-    return {
-      html,
-      total
-    };
+<div class="designer-photo">
+<img src="${designer.photo}">
+</div>
 
-  }
+<div class="header-info">
 
-  // дизайнеры
-  const designers = [
+<div class="title-line">
+<h3>${designer.name} ${designer.id}</h3>
+<span class="city">${designer.city}</span>
+</div>
 
-    generateDesignerCard(
-      "Полина",
-      "0001758"
-    ),
+<div class="tags-row">
+<span class="tag tag-green">${designer.feature1}</span>
+</div>
 
-    generateDesignerCard(
-      "Екатерина",
-      "0001759",
-      true
-    )
+<div class="tags-row">
+${feature2Html}
+</div>
 
-  ];
+<div class="tags-row">
+${objectsHtml}
+</div>
 
-  // фильтрация
-  let filteredDesigners = designers.filter(
+<div class="tags-row">
+<span class="tag tag-orange">${designer.minArea}</span>
+<span class="tag tag-orange">${designer.minBudget}</span>
+</div>
 
-    d =>
-      d.total >= budgetMin &&
-      d.total <= budgetMax &&
-      selectedCity === "Уфа"
+</div>
 
-  );
+</div>
 
-  // сортировка
-  if (sortOrder === "asc") {
+<h4>Расчет стоимости:</h4>
 
-    filteredDesigners.sort(
-      (a,b) => a.total - b.total
-    );
+${servicesHtml}
 
-  }
+<div class="total">
 
-  else if (sortOrder === "desc") {
+Итого: ${Math.round(total)} ₽
 
-    filteredDesigners.sort(
-      (a,b) => b.total - a.total
-    );
+${
+supervision.checked && supervisionValue > 0
+? `
+<div class="supervision-badge">
++ ${Math.round(supervisionValue)} ₽/мес
+</div>
+`
+: ""
+}
 
-  }
+</div>
 
-  // вывод
-  document.getElementById("results").innerHTML =
+<a href="${telegramUrl}" target="_blank">
+<button class="contact-btn">
+Связаться
+</button>
+</a>
 
-    filteredDesigners.length > 0
+</div>
+`;
 
-      ? filteredDesigners
-          .map(d => d.html)
-          .join("")
+results.push({
+html,
+total,
+hasUnavailableService
+});
 
-      : "<p>Нет дизайнеров по выбранным параметрам</p>";
+});
+
+results.sort((a,b)=>{
+
+if(a.hasUnavailableService !== b.hasUnavailableService){
+return a.hasUnavailableService ? 1 : -1;
+}
+
+return sortOrder === "asc"
+? a.total - b.total
+: b.total - a.total;
+
+});
+
+document.getElementById("results").innerHTML =
+
+results.length > 0
+
+? results.map(d=>d.html).join("")
+
+: "<p>Нет дизайнеров по выбранным параметрам</p>";
 
 }
 
