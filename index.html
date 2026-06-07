@@ -178,8 +178,8 @@ select{
 }
 
 .amount-box-disabled{
-  background:#ff3b3b;
-  color:white;
+  background:#FFAFC1;
+  color:#7a2f4b;
 }
 
 .total{
@@ -260,6 +260,8 @@ select{
 <option>Краснодар</option>
 <option>Уфа</option>
 <option>Воронеж</option>
+<option>Красноярск</option>
+<option>Омск</option>
 <option>Грозный</option>
 <option>Беларусь</option>
 </select>
@@ -732,6 +734,51 @@ supervision:0
 },
 
 {
+name:"Рыбалко Леся",
+id:"52-00017",
+city:"Санкт-Петербург",
+photo:"https://drive.google.com/thumbnail?id=1JXchXno6VyLNTDUGKvRlPPZYAWjGSG2v",
+feature1:"Работаю только онлайн",
+feature2:["Есть свой замерщик","Работаю по договору"],
+objects:["Дом","Квартира","Коммерция"],
+minArea:"От 0 кв.м",
+minBudget:"От 0 руб",
+rates:{
+measure:50,
+docs:250,
+visual:250,
+table:250,
+collageType:"m2",
+collage:100,
+supervision:40000
+}
+},
+
+{
+name:"Казанцева Александра",
+id:"52-00018",
+city:"Красноярск, Омск, Москва",
+photo:"https://drive.google.com/thumbnail?id=1M_JJgh_FPElNv8UrVrsL1t9DV7nqzW1d",
+feature1:"Работаю только онлайн",
+feature2:["Есть свой замерщик","Работаю по договору"],
+objects:["Дом","Квартира","Коммерция"],
+minArea:"От 30 кв.м",
+minBudget:"От 40 000 руб",
+description:"Меня зовут Александра. Более 7 лет успешно создаю дизайн-проекты удаленно. Всегда на связи с клиентом, независимо от разности часовых поясов. Плюсы онлайн взаимодействия — это экономия времени и доступность согласования проекта на всех этапах разработки.",
+website:"http://alex.formadesign.tilda.ws",
+rates:{
+measure:0,
+docs:900,
+visual:1500,
+table:500,
+collageType:"m2",
+collage:0,
+supervision:0
+}
+},
+
+
+{
 name:"Игорь Кушко",
 id:"52-00016",
 city:"Москва",
@@ -1024,18 +1071,172 @@ if(total < budgetMin || total > budgetMax){
 return;
 }
 
+const servicesText = [];
+
+const designerFeatures = [
+designer.feature1,
+...designer.feature2
+].join(", ");
+
+const designerObjects =
+designer.objects.join(", ");
+
+function addServiceLine(
+serviceName,
+rate,
+area,
+value,
+unit = "м²"
+){
+
+if(rate === 0){
+
+servicesText.push(
+`${serviceName}=услуга не оказывается`
+);
+
+return;
+
+}
+
+servicesText.push(
+`${serviceName}=(${rate}₽/${unit})*${area}${unit === "ракурс" ? " ракурсов" : "кв.м"}=${Math.round(value)}₽`
+);
+
+}
+
+if(measure.checked){
+
+const value =
+area1.value * designer.rates.measure * placement;
+
+addServiceLine(
+"Обмер",
+designer.rates.measure,
+area1.value,
+value
+);
+
+}
+
+if(docs.checked){
+
+const value =
+area2.value * designer.rates.docs * placement;
+
+addServiceLine(
+"Документация",
+designer.rates.docs,
+area2.value,
+value
+);
+
+}
+
+if(visual.checked){
+
+const value =
+area3.value * designer.rates.visual * placement;
+
+addServiceLine(
+"3D-визуализация",
+designer.rates.visual,
+area3.value,
+value
+);
+
+}
+
+if(table.checked){
+
+const value =
+areaTable.value * designer.rates.table;
+
+addServiceLine(
+"Таблица комплектации",
+designer.rates.table,
+areaTable.value,
+value
+);
+
+}
+
+if(collage.checked){
+
+const collageValue =
+designer.rates.collageType === "m2"
+? collageArea.value * designer.rates.collage
+: collageCount.value * designer.rates.collage;
+
+if(designer.rates.collage === 0){
+
+servicesText.push(
+`2D-коллажи=услуга не оказывается`
+);
+
+}else{
+
+if(designer.rates.collageType === "m2"){
+
+servicesText.push(
+`2D-коллажи=(${designer.rates.collage}₽/м²)*${collageArea.value}кв.м=${Math.round(collageValue)}₽`
+);
+
+}else{
+
+servicesText.push(
+`2D-коллажи=(${designer.rates.collage}₽/ракурс)*${collageCount.value} ракурсов=${Math.round(collageValue)}₽`
+);
+
+}
+
+}
+
+}
+
+if(supervision.checked){
+
+if(designer.rates.supervision === 0){
+
+servicesText.push(
+`Авторский надзор=услуга не оказывается`
+);
+
+}else{
+
+servicesText.push(
+`Авторский надзор=${designer.rates.supervision}₽/мес`
+);
+
+}
+
+}
+
 const telegramMessage =
-`Город: ${selectedCity}
-
+`Значения калькулятора:
+Город: ${selectedCity}
 Телефон: ${phone}
-
 Расположение: ${placementText}
-
 Тип: ${type}
 
-Дизайнер: ${designer.name} ${designer.id}
+Карточка дизайнера №${designer.id}
+Имя: ${designer.name}
+Город: ${designer.city}
+Особенности: ${designerFeatures}
+Объекты: ${designerObjects}
 
-Итого: ${Math.round(total)} ₽`;
+
+Расчет стоимости:
+${servicesText.join("\n")}
+
+Итого: ${Math.round(total)}₽${
+supervision.checked &&
+designer.rates.supervision > 0
+? ` [+ ${designer.rates.supervision}₽/мес авторский надзор]`
+: ""
+}`;
+
+
 
 const telegramUrl =
 "https://t.me/ikushko?text=" +
